@@ -1,6 +1,6 @@
 <?php
-require_once('../Modelo/Categoria.php');//Incluir el modelo Categoria
-require_once('../Modelo/crudCategoria.php');//Incluir el CRUD.
+// require_once('../Modelo/Categoria.php');//Incluir el modelo Categoria
+// require_once('../Modelo/crudCategoria.php');//Incluir el CRUD.
 class controladorCategoria{
     //Crear el constructor
       

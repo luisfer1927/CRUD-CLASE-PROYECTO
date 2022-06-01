@@ -11,7 +11,7 @@ class Conexion{
     public static function conectar(){
         //Verificar errores
         $pdo_options[PDO::ATTR_ERRMODE]=PDO::ERRMODE_EXCEPTION;//Capturar errore
-        self::$conexion = new PDO('mysql:host=localhost;dbname=proyecto','root','',$pdo_options);
+        self::$conexion = new PDO('mysql:host=localhost:3307;dbname=proyecto','root','',$pdo_options);
         return self::$conexion;
 
     }

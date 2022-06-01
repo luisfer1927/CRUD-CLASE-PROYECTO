@@ -1,54 +1,60 @@
 <?php
-require_once('../Modelo/Producto.php');//Incluir el modelo Producto
-require_once('../Modelo/crudProducto.php');//Incluir el CRUD.
-class controladorProducto{
+require_once('../Modelo/Cliente.php');//Incluir el modelo Producto
+require_once('../Modelo/crudCliente.php');//Incluir el CRUD.
+class controladorCliente{
     //Crear el constructor
       
     public function __construct(){
     }
 
-    public function listarProducto(){
+    public function listarCliente(){
        //Llamar el método listarProducto del crudProducto.
-       $crudProducto = new crudProducto();//Instanciar crudProducto
-       $listaProducto = $crudProducto->listarProducto();//Listado de productos
-       return $listaProducto;
+       $crudCliente = new crudCliente();//Instanciar crudProducto
+       $listaCliente = $crudCliente->listarCliente();//Listado de productos
+       return $listaCliente;
     }
 
     ////Recibe los valores del formulario, crea un objeto y envía la petición al CRUD
-    public function registrarProducto($e_idCategoria,$e_nombre,$e_precio,$e_estado){
+    public function registrarCliente($e_correo,$e_nombre,$e_apellido,$e_peso,$e_fechaNacimiento,$e_genero,$e_estatura){
       //Instanciación del objeto Producto
-      $Producto = new Producto();//Crear un objeto del tipo Producto
-      $Producto->setidProducto('');//Asignar el valor del formulario al objeto
-      $Producto->setidCategoria($e_idCategoria);
-      $Producto->setnombre($e_nombre);//Asignar el valor del formulario
-      $Producto->setprecio($e_precio);
-      $Producto->setestado($e_estado);
+      $Cliente = new Cliente();//Crear un objeto del tipo Producto
+      $Cliente->setidCliente('');//Asignar el valor del formulario al objeto
+      $Cliente->setcorreo($e_correo);
+      $Cliente->setnombre($e_nombre);//Asignar el valor del formulario
+      $Cliente->setapellido($e_apellido);
+      $Cliente->setpeso($e_peso);
+      $Cliente->setfechaNacimiento($e_fechaNacimiento);
+      $Cliente->setgenero($e_genero);
+      $Cliente->setestatura($e_estatura);
 
       //Solicitar al crudProducto realice la inserción
-      $crudProducto = new crudProducto();
-      $mensaje = $crudProducto->registrarProducto($Producto);
+      $crudCliente = new crudCliente();
+      $mensaje = $crudCliente->registrarCliente($Cliente);
       //Imprimir el mensaje del resultado de la inserción con jscript
       echo "
       <script>
          alert('$mensaje');
-         document.location.href = '../Vista/listarProducto.php';
+         document.location.href = '../Vista/listarCliente.php';
       </script>
       ";
    }
 
-   public function buscarProducto($e_idProducto){
-      $Producto = new Producto(); //Definir un objeto de la clase Producto
-      $Producto->setidProducto($e_idProducto);//Setear valores
+   public function buscarCliente($e_idCliente){
+      $Cliente = new Cliente(); //Definir un objeto de la clase Producto
+      $Cliente->setidCliente($e_idCliente);//Setear valores
 
-      $crudProducto = new crudProducto(); //Definir un objeto de la clase crudProducto
+      $crudCliente = new crudCliente(); //Definir un objeto de la clase crudProducto
       //var_dump($Producto);
-      $datosProducto = $crudProducto->buscarProducto($Producto); //LLamar el método del crud
+      $datosCliente = $crudCliente->buscarCliente($Cliente); //LLamar el método del crud
       //var_dump($datosProducto);
-      $Producto->setnombre($datosProducto['nombre']);
-      $Producto->setidCategoria($datosProducto['idCategoria']);
-      $Producto->setprecio($datosProducto['precio']);
-      $Producto->setestado($datosProducto['estado']);
-      return $Producto;
+      $Cliente->setnombre($datosCliente['nombre']);
+      $Cliente->setcorreo($datosCliente['correo']);
+      $Cliente->setapellido($datosCliente['apellido']);
+      $Cliente->setpeso($datosCliente['peso']);
+      $Cliente->setfechaNacimiento($datosCliente['fechaNacimiento']);
+      $Cliente->setgenero($datosCliente['genero']);
+      $Cliente->setestatura($datosCliente['estatura']);
+      return $Cliente;
    }
 
    public function actualizarProducto($e_idProducto,$e_nombre,$e_idCategoria, $e_precio, $e_estado){
@@ -67,7 +73,7 @@ class controladorProducto{
       echo "
       <script>
          alert('$mensaje');
-         document.location.href = '../Vista/listarProducto.php';
+         document.location.href = '../Vista/listarCliente.php';
       </script>
       ";
    }
@@ -90,31 +96,34 @@ class controladorProducto{
 }
 
 //Probar el Controlador
-$controladorProducto = new controladorProducto();
-$listaProducto = $controladorProducto->listarProducto();//Verificar si se devuelven datos
+$controladorCliente = new controladorCliente();
+$listaCliente = $controladorCliente->listarCliente();//Verificar si se devuelven datos
 
 //Verificar la acción a realizar.
 if(isset($_POST['Registrar'])){//isset: Establer si una variable existe
-   //echo "Registrando";
+   echo "Registrando";
    //Capturar los datos enviados desde el formulario
-   $e_idCategoria = $_POST['idCategoria'];
+   $e_correo = $_POST['correo'];
    $e_nombre = $_POST['nombre']; //Captura del nombre digitado en la caja de texto
-   $e_precio = $_POST['precio'];
-   $e_estado = $_POST['estado'];
+   $e_apellido = $_POST['apellido'];
+   $e_peso = $_POST['peso'];
+   $e_fechaNacimiento = $_POST['fechaNacimiento'];
+   $e_genero = $_POST['genero'];
+   $e_estatura = $_POST['estatura'];
 
    //Hacer la petición al controlador
-   $controladorProducto->registrarProducto($e_idCategoria,$e_nombre,$e_precio,$e_estado);
+   $controladorCliente->registrarCliente($e_correo,$e_nombre,$e_apellido,$e_peso,$e_fechaNacimiento,$e_genero,$e_estatura);
 }
 else if(isset($_POST['Editar'])){
-   $e_idProducto = $_POST['idProducto']; //Recibir variable del formulario
+   $e_idCliente= $_POST['idCliente']; //Recibir variable del formulario
    //echo $e_idProducto;
-   $controladorProducto->desplegarVista("editarProducto.php?idProducto=$e_idProducto");
+   $controladorCliente->desplegarVista("editarCliente.php?idCliente=$e_idCliente");
 }
 else if(isset($_REQUEST['Actualizar'])){
    //Capturar valores enviados desde la vista
-   $e_idProducto = $_REQUEST['idProducto'];
+   $e_idCliente = $_REQUEST['idCliente'];
    $e_nombre = $_REQUEST['nombre'];
-   $e_idCategoria = $_REQUEST['idCategoria'];
+   $e_correo = $_REQUEST['correo'];
    $e_precio = $_REQUEST['precio'];
    $e_estado = $_REQUEST['estado'];
 
@@ -129,7 +138,7 @@ else if(isset($_REQUEST['Eliminar'])){
    $controladorProducto->eliminarProducto($e_idProducto); 
 }
 else if(isset($_REQUEST['vista'])){
-   $controladorProducto->desplegarVista($_REQUEST['vista']);
+   $controladorCliente->desplegarVista($_REQUEST['vista']);
 }
 //Probar en el navegador
 

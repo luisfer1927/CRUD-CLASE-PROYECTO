@@ -24,36 +24,57 @@
                        
                 <h1 class="text-center blanco">Registro</h1>
     <!-------------------formulario----------------------------------->
-                <form class="text-center bg-dark" action="registro.php" method="POST">
+                <form class="text-center bg-dark" action="../Controlador/controladorCliente.php" method="POST">
                   
                     <img class="logo" src="IMG/g.jpg" width="130px" height="130px">
                     <div class="mb-3"><br>
 
                       <label for="exampleInputEmail1" class="form-label blanco">Nombre</label>
-                      <input type="text" class="form-control  bg-light" name="txtNombre">
+                      <input type="text" class="form-control  bg-light" name="nombre">
 
                     </div>
 
+
+                    
                     <div class="mb-3"><br>
 
                       <label for="exampleInputEmail1" class="form-label blanco">Apellido</label>
-                      <input type="text" class="form-control  bg-light" name="txtNombre">
+                      <input type="text" class="form-control  bg-light" name="apellido">
 
                     </div>
 
                     <div class="mb-3">
 
-                        <label for="exampleInputPassword1" class="form-label blanco">Usuario</label>
-                        <input type="text" class="form-control bg-light " name="txtUsuario">
+                        <label for="exampleInputPassword1" class="form-label blanco">Correo</label>
+                        <input type="text" class="form-control bg-light " name="correo">
                       </div>
+
                       <div class="mb-3">
 
-                        <label for="exampleInputPassword1" class="form-label blanco">Contraseña</label>
-                        <input type="text" class="form-control bg-light " name="txtContraseña" >
+                        <label for="exampleInputPassword1" class="form-label blanco">Peso</label>
+                        <input type="text" class="form-control bg-light " name="peso" >
+
+                        <div class="mb-3">
+
+                        <label for="exampleInputPassword1" class="form-label blanco">Fecha Nacimiento</label>
+                        <input type="date" class="form-control bg-light " name="fechaNacimiento">
+                      </div>
+
+                        <div class="mb-3">
+
+                        <label for="exampleInputPassword1" class="form-label blanco">Genero</label>
+                        <input type="text" class="form-control bg-light " name="genero">
+                      </div>
+
+                      <div class="mb-3">
+
+                        <label for="exampleInputPassword1" class="form-label blanco">Estatura</label>
+                        <input type="text" class="form-control bg-light " name="estatura">
+                      </div>
 
                         <div id="emailHelp" class="verde">Verifique los datos proporcionados</div>
                       </div>
-                    <button type="submit" class="btn btn-success">Registrar</button>
+                    <button type="submit" name="Registrar" class="btn btn-success">Registrar</button>
                   </form><br>
                   <!-----------hasta aqui form----------------------->
             </div>

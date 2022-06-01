@@ -28,7 +28,7 @@ class crudCliente{
       //e_ indica que es un dato de entrada
       $sql = $baseDatos->prepare('INSERT INTO 
       cliente(idCliente,
-      idUsuario,
+      correo,
       nombre,
       apellido,
       peso,
@@ -36,7 +36,7 @@ class crudCliente{
       genero,
       estatura)
       VALUES(:e_idCliente,
-      :e_idUsuario, 
+      :e_correo, 
       :e_nombre,
       :e_apellido,
       :e_peso,
@@ -46,7 +46,7 @@ class crudCliente{
       ) ');
       //Las siguientes líneas capturan los valores de los atributos del objeto
       $sql->bindValue('e_idCliente', $cliente->getidCliente());   
-      $sql->bindValue('e_idUsuario', $cliente->getidUsuario());
+      $sql->bindValue('e_correo', $cliente->getcorreo());
       $sql->bindValue('e_nombre', $cliente->getnombre());
       $sql->bindValue('e_apellido', $cliente->getapellido());
       $sql->bindValue('e_peso', $cliente->getpeso());
@@ -73,7 +73,7 @@ class crudCliente{
       //var_dump($categoria);
       $baseDatos = Conexion::conectar();
       //Definir la sentencia sql
-      $sql = $baseDatos->query("SELECT * FROM producto WHERE idProducto=".$producto->getidProducto());
+      $sql = $baseDatos->query("SELECT * FROM cliente WHERE idCliente=".$cliente->getidCliente());
       //Ejecutar la consulta
       $sql->execute();
       //Cerrar la conexión
@@ -82,23 +82,26 @@ class crudCliente{
       return($sql->fetch());//Retornar el resultado de la consulta
     }
 
-    public function actualizarProducto($producto){ //Recibe un objeto de la clase categoria
+    public function actualizarCliente($cliente){ //Recibe un objeto de la clase cliente
       $mensaje = "";
       //Establecer la conexión a la base datos
       $baseDatos = Conexion::conectar();  
       //Preparar la sentencia sql
       //e_ indica que es un dato de entrada
       $sql = $baseDatos->prepare('UPDATE  
-      producto SET idCategoria=:e_idCategoria, nombre=:e_nombre,
-      precio=:e_precio, estado=:e_estado  
-      WHERE idProducto=:e_idProducto
+      cliente SET correo=:e_correo,
+      nombre=:e_nombre, apellido=:e_apellido, fechaNacimiento=:e_fechaNacimiento, genero=:e_genero, estatura=:e_estatura, peso=:e_peso
+      WHERE idCliente=:e_idCliente
       ');
       //Las siguientes líneas capturan los valores de los atributos del objeto
-      $sql->bindValue('e_idCategoria', $producto->getidCategoria());
-      $sql->bindValue('e_nombre', $producto->getnombre());
-      $sql->bindValue('e_precio', $producto->getprecio());
-      $sql->bindValue('e_estado', $producto->getestado());
-      $sql->bindValue('e_idProducto', $producto->getidProducto());
+      $sql->bindValue('e_correo', $cliente->getcorreo());
+      $sql->bindValue('e_nombre', $cliente->getnombre());
+      $sql->bindValue('e_apellido', $cliente->getcliente());
+      $sql->bindValue('e_peso', $cliente->getpeso());
+      $sql->bindValue('e_fechaNacimiento', $cliente->getfechaNacimiento());
+      $sql->bindValue('e_genero', $cliente->getgenero());
+      $sql->bindValue('e_estatura', $cliente->getestatura());
+      $sql->bindValue('e_idCliente', $cliente->getidCliente());
       try{ //Capturar excepciones de la base de datos
         //Ejecutar la consulta
         $sql->execute();
@@ -113,15 +116,15 @@ class crudCliente{
       return $mensaje;
     }
 
-    public function eliminarProducto($producto){ //Recibe un objeto de la clase categoria
+    public function eliminarProducto($cliente){ //Recibe un objeto de la clase categoria
       //Establecer la conexión a la base datos
       $baseDatos = Conexion::conectar();  
       //Preparar la sentencia sql
       //e_ indica que es un dato de entrada
       $sql = $baseDatos->prepare('DELETE FROM  
-      producto WHERE idProducto=:e_idProducto');
+      cliente WHERE idCliente=:e_idCliente');
       //Las siguientes líneas capturan los valores de los atributos del objeto
-      $sql->bindValue('e_idProducto', $producto->getidProducto());
+      $sql->bindValue('e_idCliente', $cliente->getidCliente());
       try{ //Capturar excepciones de la base de datos
         //Ejecutar la consulta
         $sql->execute();

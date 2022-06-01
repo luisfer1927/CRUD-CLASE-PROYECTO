@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background: -webkit-linear-gradient(to right, rgba(33, 35, 48, 0.733));
+    background: linear-gradient(to right, rgba(33, 35, 48, 0.747));
+}
+
+.enca{
+    background: #24303c;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 30px;
+    left: 0px;
+    top: 0px;
+    z-index: 100;
+    position: fixed;
+} 
+
+.wrap{
+    width: 90%;
+    max-width: 1680px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.logos{
+    color: white;
+    font-size: 20px;
+    font-family: Berlin Sans FB;
+    line-height: 50px;
+    float: left;
+}
+
+nav{
+    line-height: 20px;
+    float: right;
+}
+
+nav a{
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    font-family: Arial Narrow;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 10px;
+    line-height: normal;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+nav a:hover{
+    color: rgb(28, 201, 28);
+}
+
+.espacio-tabla{
+    padding: 10%;
+    text-align: center;
+}
+
+@media only screen and (min-width:360px) and (max-width:757px) {
+    .enca{
+        height: 70px;
+    }
+}
+
+.wrap{
+    margin: 30px;
+    margin-top: 10px;
+}
+
+.logos{
+    font-size: 30px;
+    margin-left: 70px;
+}

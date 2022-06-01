@@ -2,7 +2,7 @@
 class Cliente{
     //Definir los atributos.
     private $idCliente;
-    private $idUsuario;
+    private $correo;
     private $nombre;
     private $apellido;
     private $peso;
@@ -19,8 +19,8 @@ class Cliente{
         $this->idCliente = $e_idCliente;
     }
 
-    public function setidUsuario($e_idUsuario){
-        $this->idUsuario = $e_idUsuario;
+    public function setcorreo($e_correo){
+        $this->correo = $e_correo;
     }
 
     public function setnombre($e_nombre){
@@ -40,7 +40,7 @@ class Cliente{
     }
 
     public function setgenero($e_genero){
-        $this->genero = $e_ge;
+        $this->genero = $e_genero;
     }
 
     public function setestatura($e_estatura){
@@ -53,8 +53,8 @@ class Cliente{
         return $this->idCliente;
     }
 
-    public function getidUsuario(){
-        return $this->idUsuario;
+    public function getcorreo(){
+        return $this->correo;
     }
 
     public function getnombre(){
