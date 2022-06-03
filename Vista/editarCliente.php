@@ -37,6 +37,15 @@ $cliente = $controladorCliente->buscarCliente($_REQUEST['idCliente']);
         <label>Peso</label>
         <input type="text" name="peso" id="peso" value= "<?php echo $cliente->getpeso() ?>" />
         <br>
+        <label>Fecha Nacimiento</label>
+        <input type="text" name="fechaNacimiento" id="fechaNacimiento" value= "<?php echo $cliente->getfechaNacimiento() ?>" />
+        <br>
+        <label>Genero</label>
+        <input type="text" name="genero" id="genero" value= "<?php echo $cliente->getgenero() ?>" />
+        <br>
+        <label>Estatura</label>
+        <input type="text" name="estatura" id="estatura" value= "<?php echo $cliente->getestatura() ?>" />
+        <br>
         <button type="submit" name="Actualizar">Actualizar</button>
     </form>
 </body>

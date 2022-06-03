@@ -57,12 +57,12 @@ class controladorCliente{
       return $Cliente;
    }
 
-   public function actualizarProducto($e_idProducto,$e_nombre,$e_idCategoria, $e_precio, $e_estado){
+   public function actualizarCliente($e_idCliente,$e_nombre,$e_correo, $e_apellido, $e_peso, $e_fechaNacimiento, $e_genero, $e_estatura){
       //Instanciación del objeto Producto
-      $Producto = new Producto();//Crear un objeto del tipo Producto
-      $Producto->setidProducto($e_idProducto);//Asignar el valor del formulario al objeto
-      $Producto->setnombre($e_nombre);//Asignar el valor del formulario
-      $Producto->setidCategoria($e_idCategoria);
+      $Cliente = new Cliente();//Crear un objeto del tipo Producto
+      $Cliente->setidCliente($e_idCliente);//Asignar el valor del formulario al objeto
+      $Cliente->setnombre($e_nombre);//Asignar el valor del formulario
+      $Cliente->setcorreo($e_correo);
       $Producto->setprecio($e_precio);
       $Producto->setestado($e_estado);
     
@@ -124,11 +124,14 @@ else if(isset($_REQUEST['Actualizar'])){
    $e_idCliente = $_REQUEST['idCliente'];
    $e_nombre = $_REQUEST['nombre'];
    $e_correo = $_REQUEST['correo'];
-   $e_precio = $_REQUEST['precio'];
-   $e_estado = $_REQUEST['estado'];
+   $e_apellido = $_REQUEST['apellido'];
+   $e_peso = $_REQUEST['peso'];
+   $e_fechaNacimiento = $_REQUEST['fechaNacimiento'];
+   $e_genero = $_REQUEST['genero'];
+   $e_estatura = $_REQUEST['estatura'];
 
    //Llamar el método actualizarProducto()
-   $controladorProducto->actualizarProducto($e_idProducto,$e_nombre,$e_idCategoria, $e_precio, $e_estado); 
+   $controladorCliente->actualizarCliente($e_idCliente,$e_nombre,$e_idCategoria, $e_precio, $e_estado); 
 }
 else if(isset($_REQUEST['Eliminar'])){
    //Capturar valores enviados desde la vista
