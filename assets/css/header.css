@@ -5,39 +5,42 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
+/* body{
     background: -webkit-linear-gradient(to right, rgba(33, 35, 48, 0.733));
     background: linear-gradient(to right, rgba(33, 35, 48, 0.747));
-}
+} */
+
 
 .enca{
     background: #24303c;
     overflow: hidden;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     left: 0px;
     top: 0px;
     z-index: 100;
     position: fixed;
+    
 } 
 
 .wrap{
     width: 90%;
     max-width: 1680px;
-    margin: auto;
+    margin: 20px;
     overflow: hidden;
+    padding-bottom: 2px;
 }
 
 .logos{
     color: white;
     font-size: 20px;
     font-family: Berlin Sans FB;
-    line-height: 50px;
+    line-height: 20px;
     float: left;
 }
 
 nav{
-    line-height: 20px;
+    line-height: 10px;
     float: right;
 }
 

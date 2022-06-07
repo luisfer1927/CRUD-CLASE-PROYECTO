@@ -96,7 +96,7 @@ class crudCliente{
       //Las siguientes líneas capturan los valores de los atributos del objeto
       $sql->bindValue('e_correo', $cliente->getcorreo());
       $sql->bindValue('e_nombre', $cliente->getnombre());
-      $sql->bindValue('e_apellido', $cliente->getcliente());
+      $sql->bindValue('e_apellido', $cliente->getapellido());
       $sql->bindValue('e_peso', $cliente->getpeso());
       $sql->bindValue('e_fechaNacimiento', $cliente->getfechaNacimiento());
       $sql->bindValue('e_genero', $cliente->getgenero());
@@ -116,7 +116,7 @@ class crudCliente{
       return $mensaje;
     }
 
-    public function eliminarProducto($cliente){ //Recibe un objeto de la clase categoria
+    public function eliminarCliente($cliente){ //Recibe un objeto de la clase categoria
       //Establecer la conexión a la base datos
       $baseDatos = Conexion::conectar();  
       //Preparar la sentencia sql
@@ -128,7 +128,7 @@ class crudCliente{
       try{ //Capturar excepciones de la base de datos
         //Ejecutar la consulta
         $sql->execute();
-        echo "Eliminación exitosa";
+        $mensaje = "Eliminación exitosa";
       }
       catch(Exception $excepcion){ //Exception: Excepción o un error
         //echo $excepcion->getMessage();
@@ -136,6 +136,7 @@ class crudCliente{
       }
       //Cerrar la conexión
       Conexion::desconectar($baseDatos);
+      return $mensaje;
     }
 }
 

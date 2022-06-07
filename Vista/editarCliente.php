@@ -13,40 +13,43 @@ $cliente = $controladorCliente->buscarCliente($_REQUEST['idCliente']);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/estilos.css">
+    
     <title>Document</title>
 </head>
 <body>
 
+    <header class="enca">
+            <div class="wrap">
+                <div class="logos">
+                    Proyecto LUIS
+                </div>
+                <nav>
+                    <a href="registroCliente.php">Inicio</a>
+                    <a href="listarCliente.php">Tabla</a>
+                    <a href="loginCliente.php">Login</a>
+                    <a href="">Aceca de Nosotros</a>
+                </nav>
+            </div>
+        </header>
 
     <h1 align="center">Editar Cliente</h1>
-    <form action="../Controlador/controladorCliente.php" method="POST">
-        <label>Id Producto</label>
-        <input type="text" name="idCliente" id="idCliente" readonly  value="<?php echo $cliente->getidCliente() ?>" />
-        <br>
-        
-        <br>
-        <label>Nombre:</label>
-        <input type="text" name="nombre" id="nombre" value="<?php echo $cliente->getnombre() ?>" />
-        <br>
-        <label>Apellido:</label>
-        <input type="text" name="apellido" id="apellido" value ="<?php echo $cliente->getapellido() ?>" />
-        <br>
-        <label>Correo</label>
-        <input type="text" name="correo" id="correo" value= "<?php echo $cliente->getcorreo() ?>" />
-        <br>
-        <label>Peso</label>
-        <input type="text" name="peso" id="peso" value= "<?php echo $cliente->getpeso() ?>" />
-        <br>
-        <label>Fecha Nacimiento</label>
-        <input type="text" name="fechaNacimiento" id="fechaNacimiento" value= "<?php echo $cliente->getfechaNacimiento() ?>" />
-        <br>
-        <label>Genero</label>
-        <input type="text" name="genero" id="genero" value= "<?php echo $cliente->getgenero() ?>" />
-        <br>
-        <label>Estatura</label>
-        <input type="text" name="estatura" id="estatura" value= "<?php echo $cliente->getestatura() ?>" />
-        <br>
-        <button type="submit" name="Actualizar">Actualizar</button>
-    </form>
+
+    <form action="../Controlador/controladorCliente.php" class="form-registro" method="POST">
+      <h4>Actualice aqui</h4>
+      <input class="controls" type="text" name="idCliente" id="idCliente" readonly  value="<?php echo $cliente->getidCliente() ?>" />
+      <input class="controls" type="text" name="nombre" id="nombre" value="<?php echo $cliente->getnombre() ?>" />
+      <input class="controls" type="text" name="apellido" id="apellido" value ="<?php echo $cliente->getapellido() ?>" />
+      <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su correo" value= "<?php echo $cliente->getcorreo() ?>" />
+      <input class="controls" type="text" name="peso" id="peso" value= "<?php echo $cliente->getpeso() ?>" />
+      <input class="controls" type="date" name="fechaNacimiento" id="fechaNacimiento" value= "<?php echo $cliente->getfechaNacimiento() ?>" />
+      <input class="controls" type="text" name="genero" id="genero" value= "<?php echo $cliente->getgenero() ?>" />
+      <input class="controls" type="text" name="estatura" id="estatura" value= "<?php echo $cliente->getestatura() ?>" />
+      <a href="">
+      <button type="submit" name="Actualizar" class="botons">Actualizar</button>
+      </a>
+      
+  </form>
+
 </body>
 </html>

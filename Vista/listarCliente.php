@@ -12,7 +12,7 @@ require_once('../Controlador/controladorCliente.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/header.css">
-    <
+    
     <title>Form</title>
 </head>
 
@@ -26,7 +26,7 @@ require_once('../Controlador/controladorCliente.php');
                 <nav>
                     <a href="registroCliente.php">Inicio</a>
                     <a href="listarCliente.php">Tabla</a>
-                    <a href="">Contactos</a>
+                    <a href="loginCliente.php">Login</a>
                     <a href="">Aceca de Nosotros</a>
                 </nav>
             </div>
@@ -35,13 +35,11 @@ require_once('../Controlador/controladorCliente.php');
  <br>
     
     
-   
 
-    
 
     <div class="espacio-tabla">
 
-        <h1 align="center">Clientes</h1>
+        <h1 align="center">Gestion de Clientes</h1>
     <table class="table table-dark table-striped">
         <thead>
             
@@ -90,9 +88,9 @@ require_once('../Controlador/controladorCliente.php');
 
     <script>
         //Declarar la función de javascript
-        function validarEliminacion(idProducto){
+        function validarEliminacion(idCliente){
             if(confirm('¿Realmente desea eliminar?')){
-                document.getElementById('frmProducto'+idProducto).submit();
+                document.getElementById('frmCliente'+idCliente).submit();
             }
         }
     </script>
@@ -116,3 +114,5 @@ require_once('../Controlador/controladorCliente.php');
     </script>
     
 </body>
+
+</html>

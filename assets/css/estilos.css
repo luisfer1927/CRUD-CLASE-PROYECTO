@@ -62,5 +62,9 @@
     color: white;
     margin: 20px 0;
     font-size: 16px;
+    
+}
 
+.botons:hover {
+    cursor: pointer;
 }

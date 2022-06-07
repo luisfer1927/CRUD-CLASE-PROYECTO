@@ -63,12 +63,15 @@ class controladorCliente{
       $Cliente->setidCliente($e_idCliente);//Asignar el valor del formulario al objeto
       $Cliente->setnombre($e_nombre);//Asignar el valor del formulario
       $Cliente->setcorreo($e_correo);
-      $Producto->setprecio($e_precio);
-      $Producto->setestado($e_estado);
+      $Cliente->setapellido($e_apellido);
+      $Cliente->setpeso($e_peso);
+      $Cliente->setfechaNacimiento($e_fechaNacimiento);
+      $Cliente->setgenero($e_genero);
+      $Cliente->setestatura($e_estatura);
     
       //Solicitar al crudProducto realice la actualización
-      $crudProducto = new crudProducto();
-      $mensaje = $crudProducto->actualizarProducto($Producto); 
+      $crudCliente = new crudCliente();
+      $mensaje = $crudCliente->actualizarCliente($Cliente); 
 
       echo "
       <script>
@@ -78,14 +81,22 @@ class controladorCliente{
       ";
    }
 
-   public function eliminarProducto($e_idProducto){
+   public function eliminarCliente($e_idCliente){
       //Instanciación del objeto Producto
-      $Producto = new Producto();//Crear un objeto del tipo Producto
-      $Producto->setidProducto($e_idProducto);//Asignar el valor del formulario al objeto
+      $Cliente = new Cliente();//Crear un objeto del tipo Producto
+      $Cliente->setidCliente($e_idCliente);//Asignar el valor del formulario al objeto
     
-      //Solicitar al crudProducto realice la eliminación
-      $crudProducto = new crudProducto();
-      $crudProducto->eliminarProducto($Producto); 
+      //Solicitar al crudCliente realice la eliminación
+      $crudCliente = new crudCliente();
+      $mensaje = $crudCliente->eliminarCliente($Cliente); 
+
+       echo "
+      <script>
+         alert('$mensaje');
+         document.location.href = '../Vista/listarCliente.php';
+      </script>
+      ";
+
    }
 
    public function desplegarVista($pagina){
@@ -131,14 +142,14 @@ else if(isset($_REQUEST['Actualizar'])){
    $e_estatura = $_REQUEST['estatura'];
 
    //Llamar el método actualizarProducto()
-   $controladorCliente->actualizarCliente($e_idCliente,$e_nombre,$e_idCategoria, $e_precio, $e_estado); 
+   $controladorCliente->actualizarCliente($e_idCliente,$e_nombre,$e_correo, $e_apellido, $e_peso, $e_fechaNacimiento, $e_genero, $e_estatura); 
 }
 else if(isset($_REQUEST['Eliminar'])){
    //Capturar valores enviados desde la vista
-   $e_idProducto = $_REQUEST['idProducto'];
+   $e_idCliente = $_REQUEST['idCliente'];
 
    //Llamar el método eliminarProducto()
-   $controladorProducto->eliminarProducto($e_idProducto); 
+   $controladorCliente->eliminarCliente($e_idCliente); 
 }
 else if(isset($_REQUEST['vista'])){
    $controladorCliente->desplegarVista($_REQUEST['vista']);

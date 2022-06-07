@@ -48,7 +48,6 @@ class Cliente{
     }
 
 
-
     public function getidCliente(){
         return $this->idCliente;
     }
